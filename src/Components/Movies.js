@@ -17,7 +17,7 @@ let allPosters = movieInfos.map(movie => {
   )
 })
   return (
-    <div>
+    <div className="movie-container">
       {allPosters}
     </div>
   )
