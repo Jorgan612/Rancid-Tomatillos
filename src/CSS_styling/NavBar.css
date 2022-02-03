@@ -1,0 +1,22 @@
+.nav-bar {
+  display: flex;
+  padding: 0 30px 0 30px;
+  justify-content: space-between;
+  color: white;
+  font-size: 50px;;
+  border: 3px solid green;
+  background-color: rgb(37, 20, 37);
+}
+
+.nav-button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+}
+
+button {
+  font-size: 20px;
+  width: 70%;
+  height: 25%;
+}
