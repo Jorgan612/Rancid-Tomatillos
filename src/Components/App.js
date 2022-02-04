@@ -14,19 +14,19 @@ class App extends Component {
    console.log(this.state.movieInfo)
   }
 
-  // findDetails = (id) => {
-  //   let foundMovie = this.state.movieInfo.find(movie => {
-  //     if (id === movie["id"]) {
-  //      this.setState({movieInfo: movie})
-  //     }
-  //     return movie;
+  findDetails = (id) => {
+    let foundMovie = this.state.movieInfo.find(movie => {
+      if (id === movie["id"]) {
+       this.setState({movieInfo: [movie]})
+      }
+      return movie;
       
-  //   })
-  //   console.log('foundMovie is?----', foundMovie)
-  //  return (
-  //    <Details movieDetails={foundMovie} />
-  //     )
-  // }
+    })
+    console.log('foundMovie is?----', foundMovie)
+   return (
+     <Details movieDetails={foundMovie} />
+      )
+  }
 
   // showDetails = (event) => {
   //   if (event.target.id === id) {
@@ -54,6 +54,7 @@ class App extends Component {
       <>
         <NavBar />
         <main>
+          {this.state.movieInfo.length < 2 && <Details />}
           <Movies movieInfos={this.state.movieInfo} findDetails={this.findDetails}/>
         </main>
       </>
