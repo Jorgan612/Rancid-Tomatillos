@@ -1,18 +1,14 @@
 import React from 'react';
 import '../CSS_styling/Details.css';
 
-const Details = ({movieInfo, id}) => {
-  movieInfo.find(movie => {
-    if (movie["id"] === id) {
+const Details = ({movieDetails}) => {
     return (
         <div>
-          <img src={movie['backdrop_path']} />
-          <h2>{movie['title']}</h2>
-          <h3>{movie['average_rating']}</h3>
+          <img src={movieDetails['backdrop_path']} alt={movieDetails['title']}/>
+          <h2>{movieDetails['title']}</h2>
+          <h3>{movieDetails['average_rating']}</h3>
         </div>
       )
-    }
-  })
 }
 
 
