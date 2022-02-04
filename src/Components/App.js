@@ -14,20 +14,19 @@ class App extends Component {
    console.log(this.state.movieInfo)
   }
 
-  findDetails = (id) => {
-    let foundMovie = this.state.movieInfo.find(movie => {
-      if (id === movie["id"]) {
-       this.setState({movie})
-      }
-      console.log('movie is?----', movie)
-      return movie;
+  // findDetails = (id) => {
+  //   let foundMovie = this.state.movieInfo.find(movie => {
+  //     if (id === movie["id"]) {
+  //      this.setState({movieInfo: movie})
+  //     }
+  //     return movie;
       
-    })
-    console.log('foundMovie is?----', foundMovie)
-   return (
-     <Details prop={foundMovie} />
-      )
-  }
+  //   })
+  //   console.log('foundMovie is?----', foundMovie)
+  //  return (
+  //    <Details movieDetails={foundMovie} />
+  //     )
+  // }
 
   // showDetails = (event) => {
   //   if (event.target.id === id) {
