@@ -4,7 +4,7 @@ import '../CSS_styling/Movies.css';
 
 
 const Movies = ({movieInfos, findDetails}) => {
-console.log(movieInfos)
+console.log('movieinfos prop', movieInfos)
 
 let allPosters = movieInfos.map(movie => {
   return (
@@ -15,7 +15,7 @@ let allPosters = movieInfos.map(movie => {
       title={movie["title"]}
       rating={movie["average_rating"]}
       releaseDate={movie["release_date"]}
-      findDetails={findDetails(movie["id"])}
+      findDetails={findDetails}
       />
   )
 })
