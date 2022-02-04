@@ -1,7 +1,7 @@
 import React from "react";
 import '../CSS_styling/Poster.css'
 
-const Poster = ({image, title, rating, releaseDate, findDetails, id}) => {
+const Poster = ({image, title, rating, releaseDate, /*findDetails, */id}) => {
   return (
     <div className="poster">
       <img src={image} alt={title} />
@@ -9,7 +9,9 @@ const Poster = ({image, title, rating, releaseDate, findDetails, id}) => {
         <h4>Release Date:</h4>
          <p>{releaseDate}</p>
         <h5>Rating: {rating.toFixed(1)}</h5>
-        <button id={id} onClick={findDetails(id)}>i</button>
+      </div>
+      <div className="poster-button-div">
+        <button className='poster-button' id={id} /*onClick={findDetails(id)}*/>i</button>
       </div>
     </div>
   )
