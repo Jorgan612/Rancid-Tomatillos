@@ -13,6 +13,7 @@ const Details = ({movieInfo, id}) => {
       )
     }
   })
+}
 
 
 export default Details;
