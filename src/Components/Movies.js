@@ -4,7 +4,9 @@ import '../CSS_styling/Movies.css';
 
 
 const Movies = ({movieInfos, findDetails}) => {
-console.log('movieinfos prop', movieInfos)
+// console.log('movieinfos prop', movieInfos)
+
+
 
 let allPosters = movieInfos.map(movie => {
   return (
