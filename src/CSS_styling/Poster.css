@@ -20,13 +20,12 @@ h4 {
   margin-bottom: 0;
 }
 
-img {
+.poster-img {
   border-radius: 7px;
 }
 
-h2,
-h5,
-h6 {
+
+.poster-rating {
   margin: 10px;
 }
 .poster-button-div {
