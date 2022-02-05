@@ -2,7 +2,6 @@ import React from "react";
 import '../CSS_styling/Poster.css'
 
 const Poster = ({image, title, rating, releaseDate, findDetails, id}) => {
-  console.log('Poster id prop---', typeof id)
   return (
     <div className="poster">
       <img src={image} alt={title} />
