@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <>
         <NavBar />
-        <main>
+        <main className='main-container'>
         {this.state.movieInfo.length < 2 ? <Details movieInfo={this.state.movieInfo} /> :
         <Movies movieInfos={this.state.movieInfo} findDetails={event => this.findDetails(event)}/>}
         </main>
