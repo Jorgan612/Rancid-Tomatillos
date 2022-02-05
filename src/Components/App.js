@@ -23,14 +23,26 @@ class App extends Component {
     this.componentDidMount()
   }
 
+  //we need to utilize the id (event.target.id)
+  //and then pass it through a fetch call to make it dynamic
+  //and then do 2 .thens
+  //and then reset the state with that individual movi
+  //and then re-do our details poster thing with more info
+
   findDetails = (event) => {
-    this.state.movieInfo.find(movie => {
-      let id = Number(event.target.id)
-      if (movie.id === id) {
-      this.setState({movieInfo: [movie]})
-      return movie;
-      }
-    })
+    let id = Number(event.target.id)
+    console.log("number", id)
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+    .then(response => response.json())
+    .then(data => console.log("it's the data!", data))
+    .catch(err => console.log("an error!", err))
+    // this.state.movieInfo.find(movie => {
+    //   let id = Number(event.target.id)
+    //   if (movie.id === id) {
+    //   this.setState({movieInfo: [movie]})
+    //   return movie;
+    //   }
+    // })
   }
 
   render() {
