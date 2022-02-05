@@ -6,8 +6,19 @@ const Details = ({movieInfo}) => {
     return (
         <div className='details-div'>
           <img className='details-img' src={movie['backdrop_path']} alt={movie['title']}/>
-          <h2 className="movie-title">{movie['title']}</h2>
-          <h3>{movie['average_rating']}</h3>
+          <h1 className="movie-title">{movie['title']}</h1>
+
+
+
+          {movie.tagline && <h3 className='tagline'>"{movie['tagline']}"</h3>}
+
+
+
+          <h3>Summary:</h3>
+          <p className='over-view'>{movie['overview']}</p> 
+          <h3 className='genre'>{movie['genre']}</h3> 
+          <h4 className='run-time'>Runtime:</h4>
+          <p className='run-time'>{movie['runtime']} minutes</p>
         </div>
       )
   })
@@ -18,6 +29,22 @@ const Details = ({movieInfo}) => {
   )
 }
 
+//img, tagline, title, overview, genre, runtime
+//Tagline needs conditional
+
+// "release_date": "2020-07-02",
+// "overview": "A black ops assassin is forced to fight for her own survival after a job goes dangerously wrong.",
+// "genres": [
+// "Action",
+// "Crime",
+// "Drama",
+// "Thriller"
+// ],
+// "budget": 0,
+// "revenue": 152812,
+// "runtime": 96,
+// "tagline": "Kill. Or be killed.",
+// "average_rating": 5.142857142857143
 
 export default Details;
 
