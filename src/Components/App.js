@@ -9,52 +9,28 @@ class App extends Component {
   constructor() {
    super()
    this.state = {
-     movieInfo: movieData.movies,
-     movieDetails: {}
+     movieInfo: movieData.movies
    }
-   console.log(this.state.movieInfo)
+   console.log("this.state.movieInfo here---", this.state.movieInfo)
   }
 
   findDetails = (event) => {
-    let foundMovie = this.state.movieInfo.find(movie => {
-      if (event.target.id === movie["id"]) {
-       this.setState({movieInfo: [movie]})
-      }
+    this.state.movieInfo.find(movie => {
+      let id = Number(event.target.id)
+      if (movie.id === id) {
+      this.setState({movieInfo: [movie]})
       return movie;
+      }
     })
-    return (
-      <Details movieDetails={foundMovie} />
-        )
   }
-
-  // showDetails = (event) => {
-  //   if (event.target.id === id) {
-  //     return (
-  //       <Details 
-  //         movieInfo={this.state.movieInfo}
-  //         id={id}
-  //         />
-  //     )
-  //   }
-  // }
-
-  //we're thinking about two functions
-  //METHOD 1
-  //resets the state to the found movie based on the id passed in when clicked
-  //if id === movie["id"] {
-  //this.setState({movie})
-
-  // METHOD 2
-  //takes new state and renders found information with more details on details car
-  
 
   render() {
     return (
       <>
         <NavBar />
         <main>
-          {this.state.movieInfo.length < 2 && <Details />}
-          <Movies movieInfos={this.state.movieInfo} findDetails={event => this.findDetails(event)}/>
+        {this.state.movieInfo.length < 2 ? <Details movieInfo={this.state.movieInfo} /> :
+        <Movies movieInfos={this.state.movieInfo} findDetails={event => this.findDetails(event)}/>}
         </main>
       </>
     )
