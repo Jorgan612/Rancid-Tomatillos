@@ -1,12 +1,14 @@
 import React from 'react';
 import '../CSS_styling/Details.css';
 
-const Details = ({movieDetails}) => {
+const Details = ({movieInfo}) => {
+  console.log('movie Info in details', movieInfo)
+  console.log('is details happening?!?!?!?')
     return (
         <div>
-          <img src={movieDetails['backdrop_path']} alt={movieDetails['title']}/>
-          <h2>{movieDetails['title']}</h2>
-          <h3>{movieDetails['average_rating']}</h3>
+          <img src={movieInfo['backdrop_path']} alt={movieInfo['title']}/>
+          <h2>{movieInfo['title']}</h2>
+          <h3>{movieInfo['average_rating']}</h3>
         </div>
       )
 }
