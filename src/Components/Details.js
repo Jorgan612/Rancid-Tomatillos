@@ -2,13 +2,11 @@ import React from 'react';
 import '../CSS_styling/Details.css';
 
 const Details = ({movieInfo}) => {
-  console.log('movie Info in details', movieInfo)
-  console.log('is details happening?!?!?!?')
   let detail = movieInfo.map((movie) => {
     return (
-        <div>
-          <img src={movie['backdrop_path']} alt={movie['title']}/>
-          <h2>{movie['title']}</h2>
+        <div className='details-div'>
+          <img className='details-img' src={movie['backdrop_path']} alt={movie['title']}/>
+          <h2 className="movie-title">{movie['title']}</h2>
           <h3>{movie['average_rating']}</h3>
         </div>
       )
