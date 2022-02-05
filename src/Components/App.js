@@ -14,6 +14,10 @@ class App extends Component {
    console.log("this.state.movieInfo here---", this.state.movieInfo)
   }
 
+  displayMainPage = () => {
+    this.setState({movieInfo: movieData.movies})
+  }
+
   findDetails = (event) => {
     this.state.movieInfo.find(movie => {
       let id = Number(event.target.id)
@@ -27,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <NavBar />
+        <NavBar showMain={this.displayMainPage}/>
         <main className='main-container'>
         {this.state.movieInfo.length < 2 ? <Details movieInfo={this.state.movieInfo} /> :
         <Movies movieInfos={this.state.movieInfo} findDetails={event => this.findDetails(event)}/>}
@@ -39,6 +43,3 @@ class App extends Component {
 
 export default App;
 
-//TO INVESTIGATE AFTER DINNER BREAK !!!
-// Make additional property for single movie details 
-// use findDetails method to find single movie details pass that as a prop to Details component to render single movie details on DOM. 
