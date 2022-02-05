@@ -34,8 +34,8 @@ class App extends Component {
     console.log("number", id)
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
     .then(response => response.json())
-    .then(data => console.log("it's the data!", data))
-    .catch(err => console.log("an error!", err))
+    .then(data => this.setState({movieInfo: [data.movie]}))
+    .catch(err => console.log(err))
     // this.state.movieInfo.find(movie => {
     //   let id = Number(event.target.id)
     //   if (movie.id === id) {
