@@ -1,21 +1,26 @@
 import React, { Component } from 'react'
 import '../CSS_styling/App.css';
-import movieData from '../movie-data';
 import Movies from './Movies';
 import NavBar from './NavBar';
 import Details from './Details'
+import { fetchMovies } from '../apiCalls';
 
 class App extends Component {
   constructor() {
    super()
    this.state = {
-     movieInfo: movieData.movies
+     movieInfo: []
    }
    console.log("this.state.movieInfo here---", this.state.movieInfo)
   }
 
+  componentDidMount = () => {
+    fetchMovies()
+    .then(data => (this.setState({movieInfo: data.movies})))
+  }
+
   displayMainPage = () => {
-    this.setState({movieInfo: movieData.movies})
+    this.componentDidMount()
   }
 
   findDetails = (event) => {
