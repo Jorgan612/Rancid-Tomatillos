@@ -4,13 +4,20 @@ import '../CSS_styling/Details.css';
 const Details = ({movieInfo}) => {
   console.log('movie Info in details', movieInfo)
   console.log('is details happening?!?!?!?')
+  let detail = movieInfo.map((movie) => {
     return (
         <div>
-          <img src={movieInfo['backdrop_path']} alt={movieInfo['title']}/>
-          <h2>{movieInfo['title']}</h2>
-          <h3>{movieInfo['average_rating']}</h3>
+          <img src={movie['backdrop_path']} alt={movie['title']}/>
+          <h2>{movie['title']}</h2>
+          <h3>{movie['average_rating']}</h3>
         </div>
       )
+  })
+  return (
+    <div>
+      {detail}
+    </div>
+  )
 }
 
 
