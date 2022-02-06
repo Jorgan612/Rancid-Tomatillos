@@ -3,18 +3,33 @@
   flex-direction: column;
   justify-content: center;
   /* align-content: center; */
-  height: 80%;
-  width: 100%;
-  border: 2px solid yellow;
+  height: 50%;
+  width: 40%;
+  margin-left: 27%;
+  margin-bottom: 10%;
+  /* border: 2px solid yellow; */
+  background-color: #493548;
+  color: white;
+  padding: 15px;
+  box-shadow: 10px 10px 15px #4B4E6D;
+}
+
+.tagline {
+  margin: 3px 0 20px 0;
+}
+
+.over-view {
+  margin-top: 0;
+  font-size: 20px;
 }
 
 .details-img {
   height: 50%;
-  width: 90%;
+  width: 100%;
 }
 
 .movie-title {
   display: flex;
   justify-content: center;
-  border: 2px solid purple;
+  /* border: 2px solid purple; */
 }
