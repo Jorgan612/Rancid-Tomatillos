@@ -7,15 +7,8 @@ const Details = ({movieInfo}) => {
         <div className='details-div'>
           {movie['backdrop_path'] ? <img className='details-img' src={movie['backdrop_path']} alt={movie['title']}/> :
           <img className='details-img' src={movie['poster_path']} alt={movie['title']} />}
-          
           <h1 className="movie-title">{movie['title']}</h1>
-
-
-
           {movie.tagline && <h3 className='tagline'>"{movie['tagline']}"</h3>}
-
-
-
           <h3 className='summary'>Summary:</h3> 
           {movie.overview ? <p className='over-view'>{movie['overview']}</p> :
           <p>No information available at this time. Come back soon.</p>}
