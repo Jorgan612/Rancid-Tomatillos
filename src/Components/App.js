@@ -3,7 +3,7 @@ import '../CSS_styling/App.css';
 import Movies from './Movies';
 import NavBar from './NavBar';
 import Details from './Details'
-import { fetchMovies } from '../apiCalls';
+import { fetchMovies, getSingleMovie } from '../apiCalls';
 
 class App extends Component {
   constructor() {
@@ -12,7 +12,6 @@ class App extends Component {
      movieInfo: [],
      error: ''
    }
-   console.log("this.state.movieInfo here---", this.state.movieInfo)
   }
 
   componentDidMount = () => {
@@ -22,11 +21,7 @@ class App extends Component {
   }
 
   handleError = (error) => {
-    console.log('error param-----', error)
-    // if (error === 404) {
       this.setState({error: `Oops! Something went front. Error reading: ${error}`})
-    // }
-    console.log('what is the error?', error)
   }
 
   displayMainPage = () => {
@@ -35,9 +30,9 @@ class App extends Component {
 
   findDetails = (event) => {
     let id = Number(event.target.id)
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-    .then(response => response.json())
+    getSingleMovie(id)
     .then(data => this.setState({movieInfo: [data.movie]}))
+    .catch(error => console.log(error))
   }
 
   render() {
