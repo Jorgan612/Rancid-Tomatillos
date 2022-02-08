@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import '../CSS_styling/Poster.css'
 
 const Poster = ({image, title, rating, releaseDate, findDetails, id}) => {
@@ -11,10 +12,16 @@ const Poster = ({image, title, rating, releaseDate, findDetails, id}) => {
         <h5 className='poster-rating'>Rating: {rating.toFixed(1)}</h5>
       </div>
       <div className="poster-button-div">
-        <button className='poster-button' id={id} onClick={event => findDetails(event)}>i</button>
+        <NavLink to={`/movies/${id}`}>
+          <button className='poster-button' id={id} onClick={event => findDetails(event)}>i</button>
+        </NavLink>
       </div>
     </div>
   )
 }
+
+//QS???
+//How do we change the url of the page on click. 
+//Each button has the move id, like the image we clicked on in class
 
 export default Poster;
