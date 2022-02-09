@@ -1,12 +1,15 @@
 import React from "react";
 import '../CSS_styling/NavBar.css';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = ({showMain}) => {
   return (
       <nav className="nav-bar">
         <h1>Rancid Tomatillos</h1>
         <div className="nav-button-div">
-          <button onClick={event => showMain(event)}>Main Page</button>
+          <NavLink to="/">
+          <button>Main Page</button>
+          </NavLink>
         </div>
       </nav>
   )
