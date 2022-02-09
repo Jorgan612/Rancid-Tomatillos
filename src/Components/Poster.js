@@ -20,8 +20,4 @@ const Poster = ({image, title, rating, releaseDate, findDetails, id}) => {
   )
 }
 
-//QS???
-//How do we change the url of the page on click. 
-//Each button has the move id, like the image we clicked on in class
-
 export default Poster;
