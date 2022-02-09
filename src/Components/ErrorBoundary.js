@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NavBar from './NavBar';
 import '../CSS_styling/ErrorBoundary.css'
 
 
@@ -20,6 +21,7 @@ class ErrorBoundary extends Component {
     if(this.state.hasError) {
       return (
         <div>
+          <NavBar />
             <h1 className='error-msg'>Something went wrong.</h1>
         </div>
       )
