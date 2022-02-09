@@ -13,7 +13,7 @@ const Poster = ({image, title, rating, releaseDate, findDetails, id}) => {
       </div>
       <div className="poster-button-div">
         <NavLink to={`/movies/${id}`}>
-          <button className='poster-button' id={id} onClick={event => findDetails(event)}>i</button>
+          <button className='poster-button' id={id}>i</button>
         </NavLink>
       </div>
     </div>
