@@ -20,7 +20,8 @@ class Details extends Component {
 
   render() {
     return (
-          <div className='details-div'>
+      <div className='details-div'>
+            {console.log('this.state.movie in Details----', this.state.movie)}
             {this.state.movie['backdrop_path'] ? <img className='details-img' src={this.state.movie['backdrop_path']} alt={this.state.movie['title']}/> :
             <img className='details-img' src={this.state.movie['poster_path']} alt={this.state.movie['title']} />}
             <h1 className="movie-title">{this.state.movie['title']}</h1>

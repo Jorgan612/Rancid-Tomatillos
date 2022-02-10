@@ -4,7 +4,7 @@ import Movies from './Movies';
 import NavBar from './NavBar';
 import Details from './Details'
 import { fetchMovies } from '../apiCalls';
-import { Route } from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -25,14 +25,11 @@ class App extends Component {
       this.setState({error: `Oops! Something went front. Error reading: ${error}`})
   }
 
-  displayMainPage = () => {
-    this.componentDidMount()
-  }
-
   render() {
     return (
       <>
         <NavBar />
+        <Switch>
           <Route exact path="/" render={() => <Movies movieInfos={this.state.movieInfo} />} />
           <Route exact path="/movies/:id" render={({match}) => {
             const movieToRender = this.state.movieInfo.find(movie => movie.id === parseInt(match.params.id))
@@ -40,9 +37,11 @@ class App extends Component {
            }
           }
           /> 
+        </Switch>  
         {this.state.error && <h1>{this.state.error}</h1>}
         <main className='main-container'>
         </main>
+        {console.log('what is state?', this.state.movieInfo)}
       </>
     )
   }
