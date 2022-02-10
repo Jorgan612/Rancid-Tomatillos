@@ -1,5 +1,7 @@
 describe('Main Page', () => {
   beforeEach(() => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {fixture: 'example.json'}).as('getMovies')
+    
     cy.visit(" http://localhost:3000")
   }) 
 
@@ -14,17 +16,19 @@ describe('Main Page', () => {
   })
 
   it('User should see a list of movies show a list of available movies', () => {
-    cy.get('main')
-    .contains('2020-09-29')
-    // .contains()
+    cy.get('.movie-container')
+      .children('div')
+      .should('have.length', 5)
   })
+
   
-  it('It should be able to get movie information from an API request', () => {
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {fixture: 'example.json'}).as('getMovies')
 
-
-
-    // cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
+  it('Should see info on each individual movie poster on click of info button (i)', () => {
+    cy.get('.movie-container')
+    .children('div')
+    .eq(2)
+    .children('.poster-button-div')
+    .contains('i').click()
   })
-  // continue testing 
+
 })
