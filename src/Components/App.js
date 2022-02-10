@@ -3,7 +3,7 @@ import '../CSS_styling/App.css';
 import Movies from './Movies';
 import NavBar from './NavBar';
 import Details from './Details'
-import { fetchMovies, getSingleMovie } from '../apiCalls';
+import { fetchMovies } from '../apiCalls';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <NavBar showMain={this.displayMainPage}/>
+        <NavBar />
           <Route exact path="/" render={() => <Movies movieInfos={this.state.movieInfo} />} />
           <Route exact path="/movies/:id" render={({match}) => {
             const movieToRender = this.state.movieInfo.find(movie => movie.id === parseInt(match.params.id))
