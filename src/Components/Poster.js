@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import '../CSS_styling/Poster.css'
 
-const Poster = ({image, title, rating, releaseDate, findDetails, id}) => {
+const Poster = ({image, title, rating, releaseDate, id}) => {
   return (
     <div className="poster">
       <img className='poster-img' src={image} alt={title} />
