@@ -26,5 +26,5 @@ describe('Main Page', () => {
 
     // cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
   })
-  
+  // continue testing 
 })
