@@ -2,7 +2,7 @@ import React from "react";
 import '../CSS_styling/NavBar.css';
 import { NavLink } from 'react-router-dom';
 
-const NavBar = ({showMain}) => {
+const NavBar = () => {
   return (
       <nav className="nav-bar">
         <h1>Rancid Tomatillos</h1>
