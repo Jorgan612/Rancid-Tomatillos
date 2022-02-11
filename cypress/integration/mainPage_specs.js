@@ -22,6 +22,8 @@ describe('Main Page', () => {
   })
 
   
+  //test that the card has an image/poster
+  //test for release date & rating
 
   it('Should see info on each individual movie poster on click of info button (i)', () => {
     cy.get('.movie-container')
@@ -30,5 +32,6 @@ describe('Main Page', () => {
     .children('.poster-button-div')
     .contains('i').click()
   })
+
 
 })
