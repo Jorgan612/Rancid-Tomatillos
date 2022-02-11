@@ -3,7 +3,7 @@ describe('Details Page', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/*', {fixture: 'details.json'}).as('getMovies')
 
     cy.visit("http://localhost:3000/")
-    .get('poster-button').click()
+    .get('.poster-button').contains('i').click()
   })
 
   it('User should be able to see movie image', () => {
