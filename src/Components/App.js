@@ -46,6 +46,8 @@ class App extends Component {
 
 
   render() {
+    const error =  this.state.error && <h1>{this.state.error}</h1>
+
     return (
       <>
         <NavBar showMain={this.displayMainPage}/>
@@ -55,7 +57,7 @@ class App extends Component {
            }
           }
           /> 
-        {this.state.error && <h1>{this.state.error}</h1>}
+        {error}
         <main className='main-container'>
         </main>
       </>
