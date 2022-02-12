@@ -41,11 +41,13 @@ class Details extends Component {
             {overviewRender}
             <h3 className='genre'>{this.state.movie['genre']}</h3>
             <div className='runtime-mainpage-button-div'>
+              <div className='runtime-div'>
               <h3 className='run-time-header'>Runtime:</h3>
               {runtimeRender}
+              </div>
               <div className="nav-button-div">
                 <NavLink to="/">
-                  <button>Main Page</button>
+                  <button className='return-to-main'>Main Page</button>
                 </NavLink>
               </div>
             </div>
