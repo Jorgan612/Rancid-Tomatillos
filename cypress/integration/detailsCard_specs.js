@@ -26,6 +26,10 @@ describe('Details Page', () => {
   it('User should be able to see a runtime', () => {
     cy.get('.run-time').contains(82)
   })
+
+  it('User should see a button that says Main Page', () => {
+    cy.get('button').contains('Main Page')
+  })
   // check that main page button re-routes? Maybe just checking that it clicks?
 })
 
