@@ -12,7 +12,8 @@ class App extends Component {
    super()
    this.state = {
      movieInfo: [],
-     error: ''
+     error: '',
+     searchedMovie: ''
    }
   }
 
