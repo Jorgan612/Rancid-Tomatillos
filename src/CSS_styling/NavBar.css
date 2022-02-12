@@ -17,8 +17,22 @@
   width: 10%;
 }
 
-button {
+.search-field-div {
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
+}
+
+#inputBox {
+  margin-top: 8%;
+  height: 22%;
+  border: none;
+}
+
+.search-button {
+  margin-top: 67%;
   font-size: 20px;
-  width: 70%;
+  width: 60%;
   height: 25%;
+  border: none;
 }
