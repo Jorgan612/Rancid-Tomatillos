@@ -16,7 +16,7 @@ describe('Details Page', () => {
   })
 
   it('User should be able to see a tagline', () => {
-    // cy.get('.tagline').contains('')
+    cy.get('.tagline').contains('Tagline: none.')
   })
 
   it('User should be able to see an overview', () => {
