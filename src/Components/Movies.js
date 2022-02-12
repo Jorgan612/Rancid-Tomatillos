@@ -3,7 +3,7 @@ import Poster from "./Poster";
 import '../CSS_styling/Movies.css';
 
 
-const Movies = ({movieInfos, findDetails}) => {
+const Movies = ({movieInfos}) => {
 
 let allPosters = movieInfos.map(movie => {
   return (
@@ -14,7 +14,6 @@ let allPosters = movieInfos.map(movie => {
       title={movie["title"]}
       rating={movie["average_rating"]}
       releaseDate={movie["release_date"]}
-      findDetails={findDetails}
       />
   )
 })
