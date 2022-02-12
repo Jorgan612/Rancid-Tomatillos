@@ -1,0 +1,12 @@
+.filtered-movies {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 0 15px #4B4E6D;
+    width: 100%;
+    padding-top: 40px;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: orange;
+}
