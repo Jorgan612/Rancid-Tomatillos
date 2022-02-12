@@ -11,6 +11,18 @@ describe('Main Page', () => {
     .contains('Rancid Tomatillos')
   })
 
+  it('User should see search field in the navBar', () => {
+    cy.get('nav')
+    .contains('Rancid Tomatillos')
+    cy.get('input').type('Rogue')
+  })
+
+  it('User should be able to use search field to find a movie by name', () => {
+    cy.get('nav')
+    cy.get('input').type('Rogue')
+    cy.get('.search-button').click()
+  })
+
   it('User should see a list of movies show a list of available movies', () => {
     cy.get('.movie-container')
       .children('div')
