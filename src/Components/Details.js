@@ -13,6 +13,7 @@ class Details extends Component {
 
   componentDidMount() {
     let id = parseInt(this.props.movieDetails.id)
+    console.log("this", id)
     getSingleMovie(id)
     .then(data => {console.log("here we goooo!", data)
       this.setState({movie: data.movie})})
