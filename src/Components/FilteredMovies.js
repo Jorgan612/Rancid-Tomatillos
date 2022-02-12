@@ -1,27 +1,35 @@
 import React from 'react'
-import Poster from './Poster';
+import FilteredPoster from './FilteredPoster';
 import '../CSS_styling/Movies.css';
 
 // left off trying to figure out why it's not working 
 const FilteredMovies = ({movies, searchPhrase}) => {
-  const searchedMovie = movies.find((movie) => {
-    if(movie['title'].includes(searchPhrase)) {
-      return (
-        <Poster 
-        key={movie["id"]}
-        id={movie["id"]}
-        image={movie["poster_path"]}
-        title={movie["title"]}
-        rating={movie["average_rating"]}
-        releaseDate={movie["release_date"]}
-        />
-      )
-    }
+ 
+  
+  let searchedMovie = movies.filter((movie) => {
+    let lowerCaseTitle = movie['title'].toLowerCase()
+    if(lowerCaseTitle.includes(searchPhrase)) {
+      return movie
+  }}).map(singleMovie => {
+    return (
+      <FilteredPoster 
+      key={singleMovie["id"]}
+      id={singleMovie["id"]}
+      image={singleMovie["poster_path"]}
+      title={singleMovie["title"]}
+      rating={singleMovie["average_rating"]}
+      releaseDate={singleMovie["release_date"]}
+      />
+    )
   })
+
+  
   
   return (
-    <div>
+    <div className='filtered-movies'>
       {searchedMovie}
+      {console.log("searchedMovie here", searchedMovie)}
+      {console.log("i'm working")}
     </div>
   )
 
