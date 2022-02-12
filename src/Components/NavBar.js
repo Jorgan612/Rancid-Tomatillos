@@ -10,9 +10,14 @@ class NavBar extends Component {
     }
   }
 
+  clearInput = () => {
+    this.setState({searchedWord: ''})
+  }
+
   submitWord = (event) =>  {
     const searchPhrase = {...this.state}
     this.props.searchMovie(searchPhrase)
+    this.clearInput()
   }
   
   handleChange = (event) => {
