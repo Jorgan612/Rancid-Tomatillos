@@ -31,9 +31,21 @@
 .movie-title {
   display: flex;
   justify-content: center;
-  /* border: 2px solid purple; */
 }
 
 .runtime-mainpage-button-div {
   display: flex;
+  justify-content: space-between;
+}
+
+.nav-button-div {
+  width: 25%;
+}
+
+.return-to-main {
+  padding: 5%;
+  margin-top: 10%;
+  width: 100%;
+  height: 80%;
+  margin-right: 91%;
 }
