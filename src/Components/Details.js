@@ -12,7 +12,7 @@ class Details extends Component {
   }
 
   componentDidMount() {
-    let id = parseInt(this.props.movieToRender.id)
+    let id = parseInt(this.props.movieDetails.id)
     getSingleMovie(id)
     .then(data => {console.log("here we goooo!", data)
       this.setState({movie: data.movie})})
@@ -20,20 +20,28 @@ class Details extends Component {
   }
 
   render() {
+    const imageRender = this.state.movie['backdrop_path'] ? <img className='details-img' src={this.state.movie['backdrop_path']} alt={this.state.movie['title']}/> :
+    <img className='details-img' src={this.state.movie['poster_path']} alt={this.state.movie['title']} />
+
+    const taglineRender = this.state.movie.tagline ? <h3 className='tagline'>"{this.state.movie['tagline']}"</h3> : <h3 className='tagline'>Tagline: none.</h3>
+
+    const overviewRender =  this.state.movie.overview ? <p className='over-view'>{this.state.movie['overview']}</p> :
+    <p>No information available at this time. Come back soon.</p>
+
+    const runtimeRender = this.state.movie.runtime ? <p className='run-time'>{this.state.movie['runtime']} minutes</p> :
+    <p>No information available at this time. Come back soon.</p>
+    
     return (
           <div className='details-div'>
-            {this.state.movie['backdrop_path'] ? <img className='details-img' src={this.state.movie['backdrop_path']} alt={this.state.movie['title']}/> :
-            <img className='details-img' src={this.state.movie['poster_path']} alt={this.state.movie['title']} />}
+            {imageRender}
             <h1 className="movie-title">{this.state.movie['title']}</h1>
-            {this.state.movie.tagline ? <h3 className='tagline'>Tagline: "{this.state.movie['tagline']}"</h3> : <h3 className='tagline'>Tagline: none.</h3>}
+            {taglineRender}
             <h3 className='summary'>Summary:</h3> 
-            {this.state.movie.overview ? <p className='over-view'>{this.state.movie['overview']}</p> :
-            <p>No information available at this time. Come back soon.</p>}
+            {overviewRender}
             <h3 className='genre'>{this.state.movie['genre']}</h3>
             <div className='runtime-mainpage-button-div'>
               <h3 className='run-time-header'>Runtime:</h3>
-              {this.state.movie.runtime ? <p className='run-time'>{this.state.movie['runtime']} minutes</p> :
-              <p>No information available at this time. Come back soon.</p>}
+              {runtimeRender}
               <div className="nav-button-div">
                 <NavLink to="/">
                   <button>Main Page</button>

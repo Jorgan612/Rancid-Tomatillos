@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import Details from './Details'
 import { fetchMovies, getSingleMovie } from '../apiCalls';
 import { Route } from 'react-router-dom';
+import ErrorBoundary from './ErrorBoundary';
 
 class App extends Component {
   constructor() {
@@ -29,18 +30,34 @@ class App extends Component {
     this.componentDidMount()
   }
 
+  findMovie(matchId) {
+    console.log("id", matchId)
+    if(matchId) {
+      console.log('test')
+      const movieToRender = this.state.movieInfo.find(movie => movie.id === parseInt(matchId))
+      console.log("movie", movieToRender)
+      return (
+            <Details movieDetails={movieToRender} />
+       )
+    } else {
+      <ErrorBoundary />
+    }
+  }
+
+
   render() {
+    const error =  this.state.error && <h1>{this.state.error}</h1>
+
     return (
       <>
         <NavBar showMain={this.displayMainPage}/>
           <Route exact path="/" render={() => <Movies movieInfos={this.state.movieInfo} />} />
           <Route exact path="/movies/:id" render={({match}) => {
-            const movieToRender = this.state.movieInfo.find(movie => movie.id === parseInt(match.params.id))
-            return <Details movieToRender={movieToRender}/>
+            return this.findMovie(match.params.id)
            }
           }
           /> 
-        {this.state.error && <h1>{this.state.error}</h1>}
+        {error}
         <main className='main-container'>
         </main>
       </>
