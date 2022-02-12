@@ -6,7 +6,7 @@ class NavBar extends Component {
   constructor() {
     super();
     this.state = {
-      searchedWord: ''
+      searchedWord: '' || null
     }
   }
 
@@ -29,18 +29,18 @@ render() {
   return (
       <nav className="nav-bar">
         <h1>Rancid Tomatillos</h1>
-        <div>
-        <label>Find A Movie</label>
-        <input 
+        <div className="search-field-div">
+        <input
         id="inputBox"
         type="text" 
         name='search-box' 
         value={this.state.searchedWord}
-        placeholder="Search for a movie by title..." 
+        placeholder="Search by title..." 
         onChange={event => this.handleChange(event)}
+        required
         />
         <NavLink to="/filtered">
-          <button onClick={event => this.submitWord(event)}>Find A Movie</button>
+          <button className="search-button" onClick={event => this.submitWord(event)}>Find A Movie</button>
         </NavLink>
         </div>
       </nav>
