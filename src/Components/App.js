@@ -6,6 +6,7 @@ import Details from './Details'
 import { fetchMovies, getSingleMovie } from '../apiCalls';
 import { Route } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundary';
+import FilteredMovies from './FilteredMovies';
 
 class App extends Component {
   constructor() {
@@ -16,6 +17,11 @@ class App extends Component {
      searchedMovie: ''
    }
   }
+  
+  searchMovie = (title) => {
+    this.setState({searchedMovie: title.searchedWord})
+  }
+
 
   componentDidMount = () => {
     fetchMovies()
@@ -51,13 +57,14 @@ class App extends Component {
 
     return (
       <>
-        <NavBar showMain={this.displayMainPage}/>
+        <NavBar searchMovie={this.searchMovie} />
           <Route exact path="/" render={() => <Movies movieInfos={this.state.movieInfo} />} />
           <Route exact path="/movies/:id" render={({match}) => {
             return this.findMovie(match.params.id)
            }
           }
           /> 
+          <Route exact path="/filtered" render={() => <FilteredMovies movies={this.state.movieInfo} searchPhrase={this.state.searchedMovie} />} />
         {error}
         <main className='main-container'>
         </main>
