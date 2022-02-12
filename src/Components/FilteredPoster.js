@@ -5,7 +5,6 @@ import '../CSS_styling/FilteredPoster.css'
 const FilteredPoster = ({image, title, rating, releaseDate, id}) => {
   return (
     <div className="poster">
-      {console.log("hello hello!")}
       <img className='poster-img' src={image} alt={title} />
       <div className="poster-info">
         <h4>Release Date:</h4>
