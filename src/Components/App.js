@@ -4,9 +4,10 @@ import Movies from './Movies';
 import NavBar from './NavBar';
 import Details from './Details'
 import { fetchMovies } from '../apiCalls';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundary';
 import FilteredMovies from './FilteredMovies';
+import Error from './Error'
 
 class App extends Component {
   constructor() {
@@ -73,6 +74,7 @@ class App extends Component {
           <ErrorBoundary>
           <Route exact path="/filtered" render={() => <FilteredMovies movies={this.state.movieInfo} searchPhrase={this.state.searchedMovie} />} />
           </ErrorBoundary>
+          <Route exact path="*" render={() => <Error /> } />
         </>
     )
   }
