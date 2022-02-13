@@ -3,7 +3,7 @@ import '../CSS_styling/App.css';
 import Movies from './Movies';
 import NavBar from './NavBar';
 import Details from './Details'
-import { fetchMovies, getSingleMovie } from '../apiCalls';
+import { fetchMovies } from '../apiCalls';
 import { Route } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundary';
 import FilteredMovies from './FilteredMovies';
