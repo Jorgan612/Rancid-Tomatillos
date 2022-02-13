@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   handleError = (error) => {
-      this.setState({error: `Oops! Something went front. Error reading: ${error}`})
+      this.setState({error: `Oops! Something went front. Error reading: ${error.message}`})
   }
 
   displayMainPage = () => {
