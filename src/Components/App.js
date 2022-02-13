@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   handleError = (error) => {
-      this.setState({error: `Oops! Something went front. Error reading: ${error.message}`})
+      this.setState({error: `Oops! Something went wrong! Error reading: ${error.message}`})
   }
 
   displayMainPage = () => {
@@ -44,31 +44,36 @@ class App extends Component {
       const movieToRender = this.state.movieInfo.find(movie => movie.id === parseInt(matchId))
       console.log("movie", movieToRender)
       return (
-            <Details movieDetails={movieToRender} />
+            <ErrorBoundary error={this.state.error}><Details movieDetails={movieToRender} /></ErrorBoundary>
        )
     } else {
-      <ErrorBoundary />
+      return (
+      <h1>{this.state.error}</h1>
+      )
     }
   }
 
-
+  
   render() {
+    
     const error =  this.state.error && <h1>{this.state.error}</h1>
-
     return (
       <>
-        <NavBar searchMovie={this.searchMovie} />
-          <Route exact path="/" render={() => <Movies movieInfos={this.state.movieInfo} />} />
+      <NavBar searchMovie={this.searchMovie} />
+      {error}
+      <ErrorBoundary error={this.state.error}>
+        <Route exact path="/" render={() => <Movies movieInfos={this.state.movieInfo} />} />
+      </ErrorBoundary>
           <Route exact path="/movies/:id" render={({match}) => {
             return this.findMovie(match.params.id)
            }
           }
           /> 
+          {/* <Route render={() => <ErrorBoundary></ErrorBoundary>} /> */}
+          <ErrorBoundary>
           <Route exact path="/filtered" render={() => <FilteredMovies movies={this.state.movieInfo} searchPhrase={this.state.searchedMovie} />} />
-        {error}
-        <main className='main-container'>
-        </main>
-      </>
+          </ErrorBoundary>
+        </>
     )
   }
 }

@@ -4,9 +4,11 @@ import '../CSS_styling/FilteredMovies.css';
 
 const FilteredMovies = ({movies, searchPhrase}) => {
   let searchedMovie = movies.filter((movie) => {
+
     let lowerCasePropPhrase = searchPhrase.toLowerCase()
     let lowerCaseTitle = movie['title'].toLowerCase()
-    if (lowerCaseTitle.includes(lowerCasePropPhrase)) {
+
+    if (lowerCaseTitle && lowerCaseTitle.includes(lowerCasePropPhrase)) {
       return movie
   }
 }).map(singleMovie => {
@@ -21,10 +23,10 @@ const FilteredMovies = ({movies, searchPhrase}) => {
       />
     )
   })
-  
+  let noMovie = searchedMovie.length > 0 ? searchedMovie : <h4>Sorry for the inconvenience. Try to find another movie.</h4>
   return (
     <div className='filtered-movies'>
-      {searchedMovie}
+      {noMovie}
     </div>
   )
 
