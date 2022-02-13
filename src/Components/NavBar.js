@@ -6,7 +6,7 @@ class NavBar extends Component {
   constructor() {
     super();
     this.state = {
-      searchedWord: '' || null
+      searchedWord: '' || undefined
     }
   }
 

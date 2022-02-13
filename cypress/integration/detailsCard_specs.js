@@ -5,6 +5,23 @@ describe('Details Page', () => {
     cy.visit("http://localhost:3000/")
     .get('.poster-button').contains('i').click()
   })
+  it("User should see page name in navigation bar on page load", () => {
+    cy.get('nav')
+    .should('be.visible')
+    .contains('Rancid Tomatillos')
+  })
+
+  it('User should see search field in the navBar', () => {
+    cy.get('nav')
+    .contains('Rancid Tomatillos')
+    cy.get('input').type('Rogue')
+  })
+
+  it('User should be able to use search field to find a movie by name', () => {
+    cy.get('nav')
+    cy.get('input').type('Rogue')
+    cy.get('.search-button').click()
+  })
 
   it('User should be able to see movie image', () => {
     cy.get('img')
@@ -26,6 +43,11 @@ describe('Details Page', () => {
   it('User should be able to see a runtime', () => {
     cy.get('.run-time').contains(82)
   })
-  // check that main page button re-routes? Maybe just checking that it clicks?
+
+  it('User should see a button that says Main Page and be able to click it to return to main page', () => {
+    cy.get('button').contains('Main Page')
+    cy.get('button').contains('Main Page').click()
+  })
+
 })
 
