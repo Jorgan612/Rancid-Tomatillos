@@ -1,13 +1,18 @@
 .error-div {
   display: flex;
   flex-direction: column;
-
-  height: 50%;
+  align-items: center;
+  color: beige;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-shadow: 5px 5px 5px black;
+  background-image: url('https://wallpapercave.com/wp/wp5950960.jpg');
+  height: 100vh;
 }
 
 .error-return-home-button{
-  height: 50%;
-  width: 16%;
+  height: 100%;
+  width: 86%;
   border: none;
   cursor: pointer;
 }
