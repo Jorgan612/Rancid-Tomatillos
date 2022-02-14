@@ -1,11 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import '../CSS_styling/Error.css'
 
 
 
 const Error = () => {
   return (
-    <div>
+    <div className='error-div'>
       <h1>Error 404. Something went wrong please return to the home page.</h1>
       <NavLink to="/">
           <button className='error-return-home-button'>Return to main page</button>
