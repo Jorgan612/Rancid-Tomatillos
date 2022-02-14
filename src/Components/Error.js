@@ -11,7 +11,7 @@ const Error = () => {
       <NavLink to="/">
           <button className='error-return-home-button'>Return to main page</button>
         </NavLink>
-        <img src="https://wallpapercave.com/wp/wp5950960.jpg" alt="error page"></img>
+        {/* <img src="https://wallpapercave.com/wp/wp5950960.jpg" alt="error page"></img> */}
     </div>
   )
 }
