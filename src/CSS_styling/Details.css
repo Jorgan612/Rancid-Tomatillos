@@ -2,12 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-content: center; */
   height: 50%;
   width: 40%;
   margin-left: 27%;
   margin-bottom: 10%;
-  /* border: 2px solid yellow; */
   background-color: #493548;
   color: white;
   padding: 15px;
@@ -48,4 +46,5 @@
   width: 100%;
   height: 80%;
   margin-right: 91%;
+  cursor: pointer;
 }

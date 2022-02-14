@@ -1,0 +1,13 @@
+.error-div {
+  display: flex;
+  flex-direction: column;
+
+  height: 50%;
+}
+
+.error-return-home-button{
+  height: 50%;
+  width: 16%;
+  border: none;
+  cursor: pointer;
+}

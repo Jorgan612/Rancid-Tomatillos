@@ -3,10 +3,11 @@ import '../CSS_styling/App.css';
 import Movies from './Movies';
 import NavBar from './NavBar';
 import Details from './Details'
-import { fetchMovies, getSingleMovie } from '../apiCalls';
-import { Route } from 'react-router-dom';
+import { fetchMovies } from '../apiCalls';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundary';
 import FilteredMovies from './FilteredMovies';
+import Error from './Error'
 
 class App extends Component {
   constructor() {
@@ -59,20 +60,20 @@ class App extends Component {
     const error =  this.state.error && <h1>{this.state.error}</h1>
     return (
       <>
-      <NavBar searchMovie={this.searchMovie} />
-      {error}
-      <ErrorBoundary error={this.state.error}>
-        <Route exact path="/" render={() => <Movies movieInfos={this.state.movieInfo} />} />
-      </ErrorBoundary>
+        <NavBar searchMovie={this.searchMovie} />
+        {error}
+        <ErrorBoundary>
+        <Switch>
+          <Route exact path="/" render={() => <Movies movieInfos={this.state.movieInfo} />}></Route>
+          <Route exact path="/filtered" render={() => <FilteredMovies movies={this.state.movieInfo} searchPhrase={this.state.searchedMovie} />}></Route>
           <Route exact path="/movies/:id" render={({match}) => {
             return this.findMovie(match.params.id)
-           }
+            }
           }
-          /> 
-          {/* <Route render={() => <ErrorBoundary></ErrorBoundary>} /> */}
-          <ErrorBoundary>
-          <Route exact path="/filtered" render={() => <FilteredMovies movies={this.state.movieInfo} searchPhrase={this.state.searchedMovie} />} />
-          </ErrorBoundary>
+            ></Route>
+          <Route><Error /></Route>
+        </Switch>
+        </ErrorBoundary>
         </>
     )
   }
