@@ -1,10 +1,13 @@
 describe('Details Page', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/*', {fixture: 'details.json'}).as('getMovies')
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/*', {fixture: 'details.json'})
+    
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {fixture: 'example.json'})
 
     cy.visit("http://localhost:3000/")
     .get('.poster-button').contains('i').click()
   })
+  
   it("User should see page name in navigation bar on page load", () => {
     cy.get('nav')
     .should('be.visible')
@@ -33,7 +36,7 @@ describe('Details Page', () => {
   })
 
   it('User should be able to see a tagline', () => {
-    cy.get('.tagline').contains('Tagline: none.')
+    cy.get('.tagline').contains('Tagline: none')
   })
 
   it('User should be able to see an overview', () => {
@@ -47,6 +50,10 @@ describe('Details Page', () => {
   it('User should see a button that says Main Page and be able to click it to return to main page', () => {
     cy.get('button').contains('Main Page')
     cy.get('button').contains('Main Page').click()
+    .url().should('eq', 'http://localhost:3000/')
+    cy.get('.movie-container')
+      .children('div')
+      .should('have.length', 5)
   })
 
 })
